@@ -4,6 +4,8 @@ import { createStructuredSelector } from 'reselect';
 import { selectSortingType } from '../selectors';
 import { fetchRecent, fetchAlltime } from '../actions';*/
 
+import { fetchAllStreamers, fetchOnline, fetchOffline } from '../actions';
+
 import {
   List,
   Title, 
@@ -21,7 +23,7 @@ class TableHeader extends Component {
   /*sortStreams = (filter) => {
     if (filter !== this.props.StreamsSortingType) {
       if (filter === 'recent') {
-        this.props.onFetchRecent();
+        //this.props.onFetchRecent();
       } else {
         this.props.onFetchAllTime();
       }
@@ -44,15 +46,15 @@ class TableHeader extends Component {
       <List className='row'>
           <Title className='text-center col-xs-9'>TWITCH STREAMERS</Title>
           <Title className='col-xs-3'>
-            <Indicator className='animate-indicator'>
+            <Indicator className='animate-indicator' onClick={fetchAllStreamers}>
               <Circle style={{ backgroundColor: lightBrown }}></Circle>
               all
             </Indicator>
-            <Indicator className='animate-indicator'>
+            <Indicator className='animate-indicator' onClick={fetchOnline}>
               <Circle style={{ backgroundColor: lightGreen }}></Circle>
               online
             </Indicator>
-            <Indicator className='animate-indicator'>
+            <Indicator className='animate-indicator' onClick={fetchOffline}>
               <Circle style={{ backgroundColor: lightBlue }}></Circle>
               offline
             </Indicator>

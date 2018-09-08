@@ -1,17 +1,17 @@
-import { FETCH_ALLTIME } from './constants';
-import { FETCH_RECENT } from './constants';
+import { FETCH_ALL } from './constants';
+import { FETCH_ONLINE } from './constants';
 
 const initialState = {
     Streams: [],
-    sortingType: 'recent'
+    sortingType: 'all'
 };
 
 const StreamsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_ALLTIME:
+        case FETCH_ALL:
             return { ...state, Streams: action.payload, sortingType: 'alltime' };
 
-        case FETCH_RECENT:
+        case FETCH_ONLINE:
             return { ...state, Streams: action.payload, sortingType: 'recent' };
 
         default:
